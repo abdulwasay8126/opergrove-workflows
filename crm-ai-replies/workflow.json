@@ -1,0 +1,722 @@
+{
+  "name": "CRM AI Reply Workflow - architecture snapshot",
+  "nodes": [
+    {
+      "id": "node-01",
+      "name": "Chat model 01",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        848,
+        1552
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-02",
+      "name": "Conversation memory 01",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        960,
+        1552
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-03",
+      "name": "Structured output 01",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1088,
+        1552
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-04",
+      "name": "Route 01",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        400,
+        1040
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-05",
+      "name": "Map fields 01",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        -288
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-06",
+      "name": "Map fields 02",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        -80
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-07",
+      "name": "Map fields 03",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        128
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-08",
+      "name": "Map fields 04",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        320
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-09",
+      "name": "Map fields 05",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        528
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-10",
+      "name": "Map fields 06",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        720
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-11",
+      "name": "Map fields 07",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        928
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-12",
+      "name": "Map fields 08",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        1520
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-13",
+      "name": "Map fields 09",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        2320
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-14",
+      "name": "Note 01",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1104,
+        -288
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-15",
+      "name": "AI agent 01",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        880,
+        1328
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-16",
+      "name": "Format HTML 01",
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        1280,
+        1328
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-17",
+      "name": "HTTP request 01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1728,
+        1424
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-18",
+      "name": "Webhook 01",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        192,
+        1328
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-19",
+      "name": "Map fields 10",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        1328
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-20",
+      "name": "Map fields 11",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        1120
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-21",
+      "name": "Map fields 12",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        1728
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-22",
+      "name": "Map fields 13",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        2128
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-23",
+      "name": "Map fields 14",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        2528
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-24",
+      "name": "Map fields 15",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        2720
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-25",
+      "name": "Map fields 16",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        2928
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-26",
+      "name": "Condition 01",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1504,
+        1328
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-27",
+      "name": "HTTP request 02",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1728,
+        1232
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-28",
+      "name": "Map fields 17",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        1920
+      ],
+      "parameters": {}
+    }
+  ],
+  "connections": {
+    "Chat model 01": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Conversation memory 01": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured output 01": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route 01": {
+      "main": [
+        [
+          {
+            "node": "Map fields 01",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Map fields 02",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Map fields 03",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Map fields 04",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Map fields 05",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Map fields 06",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Map fields 07",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Map fields 08",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Map fields 09",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Map fields 10",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Map fields 11",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Map fields 12",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Map fields 13",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Map fields 14",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Map fields 15",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Map fields 16",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Map fields 17",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map fields 01": {
+      "main": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map fields 03": {
+      "main": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map fields 02": {
+      "main": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map fields 05": {
+      "main": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map fields 04": {
+      "main": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map fields 07": {
+      "main": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map fields 06": {
+      "main": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map fields 08": {
+      "main": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map fields 09": {
+      "main": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI agent 01": {
+      "main": [
+        [
+          {
+            "node": "Format HTML 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format HTML 01": {
+      "main": [
+        [
+          {
+            "node": "Condition 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP request 01": {
+      "main": [
+        []
+      ]
+    },
+    "Webhook 01": {
+      "main": [
+        [
+          {
+            "node": "Route 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map fields 11": {
+      "main": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map fields 12": {
+      "main": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map fields 13": {
+      "main": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map fields 14": {
+      "main": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map fields 15": {
+      "main": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map fields 16": {
+      "main": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map fields 10": {
+      "main": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Condition 01": {
+      "main": [
+        [
+          {
+            "node": "HTTP request 02",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP request 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map fields 17": {
+      "main": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "portfolioSnapshot": true,
+    "configurationOmitted": true
+  }
+}

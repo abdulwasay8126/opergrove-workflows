@@ -1,0 +1,147 @@
+{
+  "name": "Jira to Slack Events - architecture snapshot",
+  "nodes": [
+    {
+      "id": "node-01",
+      "name": "Webhook 01",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -256,
+        480
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-02",
+      "name": "Slack 01",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        192,
+        80
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-03",
+      "name": "Route 01",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -48,
+        448
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-04",
+      "name": "Slack 02",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        192,
+        288
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-05",
+      "name": "Slack 03",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        192,
+        480
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-06",
+      "name": "Slack 04",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        192,
+        880
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-07",
+      "name": "Slack 05",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        192,
+        688
+      ],
+      "parameters": {}
+    }
+  ],
+  "connections": {
+    "Webhook 01": {
+      "main": [
+        [
+          {
+            "node": "Route 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route 01": {
+      "main": [
+        [
+          {
+            "node": "Slack 01",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Slack 02",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Slack 03",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Slack 04",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Slack 05",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Slack 01": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "portfolioSnapshot": true,
+    "configurationOmitted": true
+  }
+}

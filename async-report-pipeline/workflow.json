@@ -1,0 +1,187 @@
+{
+  "name": "Async Report Pipeline - architecture snapshot",
+  "nodes": [
+    {
+      "id": "node-01",
+      "name": "Webhook 01",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -288,
+        0
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-02",
+      "name": "HTTP request 01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        208,
+        -16
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-03",
+      "name": "HTTP request 02",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        784,
+        -16
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-04",
+      "name": "Condition 01",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        608,
+        112
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-05",
+      "name": "Wait 01",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        400,
+        160
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-06",
+      "name": "HTTP request 03",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -64,
+        32
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-07",
+      "name": "HTTP request 04",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1392,
+        -16
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-08",
+      "name": "Condition 02",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1008,
+        -16
+      ],
+      "parameters": {}
+    }
+  ],
+  "connections": {
+    "HTTP request 01": {
+      "main": [
+        [
+          {
+            "node": "Wait 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Condition 01": {
+      "main": [
+        [
+          {
+            "node": "HTTP request 02",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 01": {
+      "main": [
+        [
+          {
+            "node": "Condition 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook 01": {
+      "main": [
+        [
+          {
+            "node": "HTTP request 03",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP request 03": {
+      "main": [
+        [
+          {
+            "node": "HTTP request 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP request 02": {
+      "main": [
+        [
+          {
+            "node": "Condition 02",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Condition 02": {
+      "main": [
+        [
+          {
+            "node": "HTTP request 04",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "portfolioSnapshot": true,
+    "configurationOmitted": true
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "name": "Appointment Agent - architecture snapshot",
+  "nodes": [
+    {
+      "id": "node-01",
+      "name": "Chat model 01",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        32
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-02",
+      "name": "Conversation memory 01",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        144
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-03",
+      "name": "AI agent 01",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        32,
+        -208
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-04",
+      "name": "Chat input 01",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -176,
+        -224
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-05",
+      "name": "Sheets tool 01",
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.6,
+      "position": [
+        528,
+        32
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-06",
+      "name": "Calendar tool 01",
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.2,
+      "position": [
+        432,
+        128
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-07",
+      "name": "Calendar tool 02",
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.2,
+      "position": [
+        192,
+        192
+      ],
+      "parameters": {}
+    }
+  ],
+  "connections": {
+    "Chat model 01": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Conversation memory 01": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chat input 01": {
+      "main": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI agent 01": {
+      "main": [
+        []
+      ]
+    },
+    "Sheets tool 01": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calendar tool 01": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calendar tool 02": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI agent 01",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "portfolioSnapshot": true,
+    "configurationOmitted": true
+  }
+}
