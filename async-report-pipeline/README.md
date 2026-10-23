@@ -15,3 +15,9 @@ Built by Abdul Wasay. This is a public architecture snapshot of his own n8n work
 **This is not a runnable template.** It can be inspected as architecture; it needs reviewed configuration and testing before any execution. No execution was performed while preparing this snapshot. No client names, commercial outcomes or performance metrics are claimed.
 
 [View JSON](workflow.json) · [Opergrove portfolio](https://opergrove.vercel.app)
+
+## Supplied workflow canvas
+
+![Original workflow canvas supplied by Abdul Wasay](workflow-canvas.jpeg)
+
+Historical node-success indicators are visible. They do not certify a fresh end-to-end execution.
